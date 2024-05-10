@@ -1,15 +1,5 @@
-<p>
-  <mat-slide-toggle
-    labelPosition="before"
-    class="toggle-theme"
-    (change)="toggleDarkMode()"
-  >
-    {{ getDarkModeText() }}
-  </mat-slide-toggle>
-</p>
-
 @if(!getListItems().length){
-<div class="container" [ngClass]="getDarkModeClass()">
+<div class="container">
   <img
     src="assets/img/task-list-null.png"
     alt="Sua lista está vazia, imagem ilustrativa"
@@ -31,7 +21,7 @@
   [inputListItems]="getListItems()"
   (outputAddListItems)="getInputAndAddItem($event)"
 />
-<main class="container" [ngClass]="getDarkModeClass()">
+<main class="container">
   @if(listItemsStage('pending').length){
   <h2>Pendências</h2>
   <app-input-list-items

@@ -4,18 +4,11 @@ import { IListItems } from '../../interface/IListItems.interface';
 import { InputListItemsComponent } from '../../components/input-list-items/input-list-items.component';
 import { ELocalStorage } from '../../enum/ELocalStorage.enum';
 import Swal from 'sweetalert2';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [
-    InputAddItensComponent,
-    InputListItemsComponent,
-    MatSlideToggleModule,
-    NgClass,
-  ],
+  imports: [InputAddItensComponent, InputListItemsComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
@@ -125,20 +118,5 @@ export class ListComponent {
         return this.#updateLocalStorage();
       }
     });
-  }
-
-  #darkMode = false;
-
-  toggleDarkMode() {
-    this.#darkMode = !this.#darkMode;
-  }
-
-  getDarkModeClass() {
-    console.log(this.#darkMode);
-    return this.#darkMode ? 'dark' : 'light';
-  }
-
-  getDarkModeText() {
-    return this.#darkMode ? 'Desativar modo escuro' : 'Ativar modo escuro';
   }
 }
